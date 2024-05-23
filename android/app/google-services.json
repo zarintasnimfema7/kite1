@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "749674070656",
+    "project_id": "login-608eb",
+    "storage_bucket": "login-608eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749674070656:android:2750102a90d097b94c9c65",
+        "android_client_info": {
+          "package_name": "com.example.kite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCldiFga19DCKv1GD_JyvK3sAfNqDaqxpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
