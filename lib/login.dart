@@ -138,34 +138,3 @@ class _LoginScreenState extends State<LoginScreen> {
     ));
   }
 }
-
-
-
-/*SingleChildScrollView(
-child: Container(
-padding: EdgeInsets.only(
-top: MediaQuery.of(context).size.height * 0.35,
-right : 35 ,
-left: 35),
-child: Column(
-children:[
-TextField(
-decoration: InputDecoration(
-fillColor: Colors.white,
-filled: true,
-hintText: 'Email',
-border: OutlineInputBorder(
-borderRadius: BorderRadius.circular(10))),
-),
-SizedBox(
-height: 30,
-),
-TextField(
-obscureText: true,
-decoration: InputDecoration(
-fillColor: Colors.white,
-filled: true,
-hintText: 'Password',
-border: OutlineInputBorder(
-borderRadius: BorderRadius.circular(10))),
-)*/
