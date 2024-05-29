@@ -1,63 +1,51 @@
-import 'package:flutter/material.dart';
-import 'package:kite/login.dart';
+import 'dart:math';
 
-class Welcome extends StatefulWidget {
-  const Welcome({super.key});
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart' show AssetImage, BoxDecoration, BoxFit, BuildContext, Colors, Column, Container, DecorationImage, EdgeInsets, ElevatedButton, FontWeight, MaterialPageRoute, MediaQuery, Scaffold, SingleChildScrollView, Stack, State, StatefulWidget, Text, TextStyle, Widget;
+
+import 'login.dart';
+class MyAuth extends StatefulWidget {
+  const MyAuth({super.key});
 
   @override
-  State<Welcome> createState() => _WelcomeState();
+  State<MyAuth> createState() => _MyAuthState();
 }
 
-class _WelcomeState extends State<Welcome> {
+class _MyAuthState extends State<MyAuth> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.pink.shade100,
-      //change 1
-      body: Center(
-          child:Text("Welcome to Kaiteki",
-          style: TextStyle(fontSize: 40.0,fontWeight: FontWeight.bold),),
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage ('lib/assets/background.png') ,
+              fit: BoxFit.fill)
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (
-            ) {  Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => const LoginScreen()));
-        },
-        child: Text(
-          'Next',
-          style: TextStyle(
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.pink.shade900,
-          ),
-        ),
-       backgroundColor: Colors.white,
-      ),
-    );
+      child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Stack(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(left: 30, top: 260),
+                  child: Text('Welcome to Kaiteki',
+                    style: TextStyle(color: Colors.black,
+                      fontSize: 42,
+                      fontWeight: FontWeight.bold,),),
+                ),
+                Center(
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()));
+                  },
+                      child: Text('Get Started',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),),
+                )
+              ]
+          )),);
   }
 }
-
-
-
-
-
-
-/*floatingActionButton: FloatingActionButton(
-        onPressed: (
-            ) {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const LoginScreen()));
-        },
-        child: Text(
-          'Next',
-          style: TextStyle(
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-       // backgroundColor: Colors.pink[400],
-      ),*/

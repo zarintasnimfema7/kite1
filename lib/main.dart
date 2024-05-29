@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: const Notes(),
-      home: const Welcome(),
+      home: const MyAuth(),
     );
   }
 }
