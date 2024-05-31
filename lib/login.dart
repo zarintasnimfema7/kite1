@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:kite/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:kite/homescreen.dart';
 import 'package:kite/signup.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,6 +14,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final FirebaseAuthServices _auth = FirebaseAuthServices();
   final username = TextEditingController();
   final password = TextEditingController();
   final formKey = GlobalKey<FormState>();
@@ -49,7 +51,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         Column(
                           children: [
                             TextFormField(
-                              controller: username,
+                              keyboardType: TextInputType.text,
+                              controller: username ,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return "username is required";
@@ -67,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 20,
                             ),
                             TextFormField(
+                              keyboardType: TextInputType.text,
                               controller: password,
                               validator: (value) {
                                 if (value!.isEmpty) {
@@ -97,10 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   borderRadius: BorderRadius.circular(8),
                                   color: Colors.pink.shade900),
                               child: TextButton(
-                                  onPressed: () {
-                                    Navigator.push(context,
-                                        MaterialPageRoute(builder: (context)=>HomeScreen()));
-                                  },
+                                  onPressed: _signIn,
                                   child: const Text(
                                     "LOGIN",
                                     style: TextStyle(color: Colors.white),
@@ -136,5 +137,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
     ),
     ));
+  }
+
+  void _signIn() async {
+    String name = username.text;
+    String pass = password.text;
+
+
+    User? user = await _auth.signInWithEmailAndPassword(name, pass);
+
+    if (user != null) {
+      print("User created successfully.");
+      Navigator.pushNamed(context, "/homescreen");
+    } else
+    {
+      print("Some error happened.");
+    }
   }
 }

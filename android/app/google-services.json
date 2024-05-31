@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "749674070656",
-    "project_id": "login-608eb",
-    "storage_bucket": "login-608eb.appspot.com"
+    "project_number": "291636949592",
+    "project_id": "kaiteki-bfdf5",
+    "storage_bucket": "kaiteki-bfdf5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:749674070656:android:2750102a90d097b94c9c65",
+        "mobilesdk_app_id": "1:291636949592:android:0fd854ded88f1740db902d",
         "android_client_info": {
           "package_name": "com.example.kite"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCldiFga19DCKv1GD_JyvK3sAfNqDaqxpk"
+          "current_key": "AIzaSyCuOKmdEofzE3rJEOMTQJWWwfnddPq81k4"
         }
       ],
       "services": {

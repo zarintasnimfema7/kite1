@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:kite/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:kite/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -10,13 +12,22 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  final FirebaseAuthServices _auth = FirebaseAuthServices();
   final username = TextEditingController();
- final password = TextEditingController();
- final confirmPassword = TextEditingController();
-
+  final password = TextEditingController();
+  final confirmPassword = TextEditingController();
   final formKey = GlobalKey<FormState>();
-
   bool isVisible = false;
+
+
+
+  void dispose()
+  {
+    super.dispose();
+    username.dispose();
+    password.dispose();
+  }
+
   @override
 
   @override
@@ -158,14 +169,7 @@ class _SignUpState extends State<SignUp> {
                          borderRadius: BorderRadius.circular(8),
                          color: Colors.pink.shade900),
                      child: TextButton(
-                         onPressed: () {
-
-                               Navigator.push(
-                                   context,
-                                   MaterialPageRoute(
-                                       builder: (context) => const LoginScreen()));
-
-                         },
+                         onPressed: _signUp,
                          child: const Text(
                            "SIGN UP",
                            style: TextStyle(color: Colors.white),
@@ -197,6 +201,20 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
+  void _signUp() async {
+    String name = username.text;
+    String pass = password.text;
+    String conpass = confirmPassword.text;
 
+    User? user = await _auth.signUpWithEmailAndPassword(name, pass);
+
+    if (user != null) {
+      print("User created successfully.");
+      Navigator.pushNamed(context, "/homescreen");
+    } else
+      {
+        print("Some error happened.");
+      }
+  }
 }
 
