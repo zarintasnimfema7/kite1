@@ -1,4 +1,4 @@
-
+import 'package:kite/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:kite/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:kite/login.dart';
@@ -13,18 +13,22 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final FirebaseAuthServices _auth = FirebaseAuthServices();
-  final username = TextEditingController();
+
+  final mail = TextEditingController();
   final password = TextEditingController();
   final confirmPassword = TextEditingController();
+
+
+  bool isSigningUp=false;
+
   final formKey = GlobalKey<FormState>();
   bool isVisible = false;
-
 
 
   void dispose()
   {
     super.dispose();
-    username.dispose();
+    mail.dispose();
     password.dispose();
   }
 
@@ -71,17 +75,17 @@ class _SignUpState extends State<SignUp> {
                            borderRadius: BorderRadius.circular(8),
                            color: Colors.pink.shade50),
                        child: TextFormField(
-                         controller: username,
+                         controller: mail,
                          validator: (value) {
                            if (value!.isEmpty) {
-                             return "username is required";
+                             return "Email is required";
                            }
                            return null;
                          },
                          decoration: const InputDecoration(
                            icon: Icon(Icons.person),
                            border: InputBorder.none,
-                           hintText: "Username",
+                           hintText: "Email",
                          ),
                        ),
                      ),
@@ -162,34 +166,48 @@ class _SignUpState extends State<SignUp> {
 
                    const SizedBox(height: 10),
                    //Login button
-                   Container(
+                    GestureDetector(
+                        onTap:  (){
+                          _signUp() ;
+
+                     }, child: Container(
                      height: 55,
                      width: MediaQuery.of(context).size.width * .9,
                      decoration: BoxDecoration(
                          borderRadius: BorderRadius.circular(8),
                          color: Colors.pink.shade900),
-                     child: TextButton(
-                         onPressed: _signUp,
-                         child: const Text(
+                     child: TextButton (
+                         onPressed: () {
+                           _signUp();
+                        },
+                         child: isSigningUp? CircularProgressIndicator(
+                           color: Colors.white,
+                         ) : Text(
                            "SIGN UP",
                            style: TextStyle(color: Colors.white),
                          )),
                    ),
-
+                    ),
+                   SizedBox(
+                        height: 20,
+                      ),
                    //Sign up button
                    Row(
                      mainAxisAlignment: MainAxisAlignment.center,
                      children: [
-                       const Text("Already have an account?"),
-                       TextButton(
-                           onPressed: () {
-                             //Navigate to sign up
-                             Navigator.push(
+                        Text("Already have an account?"),
+                       GestureDetector(
+                           onTap: () {
+                             Navigator.pushAndRemoveUntil(
                                  context,
                                  MaterialPageRoute(
-                                     builder: (context) => const LoginScreen()));
+                                     builder: (context) => LoginScreen()),
+                                     (route) => false);
                            },
-                           child: const Text("Login"))
+                           child:  Text("Login",
+                           style: TextStyle(
+                             color: Colors.blue,
+                           ),))
                      ],
                    )
                  ],
@@ -202,15 +220,25 @@ class _SignUpState extends State<SignUp> {
   }
 
   void _signUp() async {
-    String name = username.text;
+
+    setState(() {
+      isSigningUp=true;
+    });
+
+
+    String email = mail.text;
     String pass = password.text;
     String conpass = confirmPassword.text;
 
-    User? user = await _auth.signUpWithEmailAndPassword(name, pass);
+    User? user = await _auth.signUpWithEmailAndPassword(email, pass);
+
+    setState(() {
+      isSigningUp=false;
+    });
 
     if (user != null) {
       print("User created successfully.");
-      Navigator.pushNamed(context, "/homescreen");
+      Navigator.pushNamed(context, '/LoginScreen');
     } else
       {
         print("Some error happened.");
@@ -218,3 +246,10 @@ class _SignUpState extends State<SignUp> {
   }
 }
 
+/*TextButton(
+onPressed: () {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (context) =>  LoginScreen()));
+},*/

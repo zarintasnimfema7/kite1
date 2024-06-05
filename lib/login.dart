@@ -14,144 +14,187 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isSigningIn=false;
+
   final FirebaseAuthServices _auth = FirebaseAuthServices();
-  final username = TextEditingController();
+  final FirebaseAuth _firebaseAuth=FirebaseAuth.instance;
+
+  final mail = TextEditingController();
   final password = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  //A bool variable for show and hide password
   bool isVisible = false;
-
-  //Here is our bool variable
   bool isLoginTrue = false;
 
 
+  void dispose()
+  {
+    super.dispose();
+    mail.dispose();
+    password.dispose();
+  }
 
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('lib/assets/background.png'),
-          fit: BoxFit.cover,
-        )
-      ),
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: Stack(
-                children: <Widget>[
-                  SingleChildScrollView(
-                    child: Center(
-                      child: Container(
-                        padding: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * 0.40,
-                            right : 35 ,
-                            left: 35),
-                        child:
-                        Column(
-                          children: [
-                            TextFormField(
-                              keyboardType: TextInputType.text,
-                              controller: username ,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "username is required";
-                                }
-                                return null;
-                              },
-                              decoration: const InputDecoration(
-                                fillColor: Colors.pink,
-                                icon: Icon(Icons.person),
-                                border: InputBorder.none,
-                                hintText: "Username",
-                                ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            TextFormField(
-                              keyboardType: TextInputType.text,
-                              controller: password,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "password is required";
-                                }
-                                return null;
-                              },
-                              obscureText: !isVisible,
-                              decoration: InputDecoration(
-                                  icon: const Icon(Icons.lock),
-                                  border: InputBorder.none,
-                                  hintText: "Password",
-                                  suffixIcon: IconButton(
-                                      onPressed: () {
-                                        setState(() {
-                                          isVisible = !isVisible;
-                                        });
-                                      },
-                                      icon: Icon(isVisible
-                                          ? Icons.visibility
-                                          : Icons.visibility_off))),
-                            ),
-                            const SizedBox(height: 20),
-                            Container(
-                              height: 40,
-                              width: MediaQuery.of(context).size.width * .9,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: Colors.pink.shade900),
-                              child: TextButton(
-                                  onPressed: _signIn,
-                                  child: const Text(
-                                    "LOGIN",
-                                    style: TextStyle(color: Colors.white),
-                                  )),
-                            ),
-                            const SizedBox(height: 20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text("Don't have an account?"),
-                                TextButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => const SignUp()));
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('lib/assets/background.png'),
+              fit: BoxFit.cover,
+            )
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Stack(
+            children: [
+              SingleChildScrollView(
+                child: Center(
+                  child: Container(
+                    padding: EdgeInsets.only(
+                        top: MediaQuery
+                            .of(context)
+                            .size
+                            .height * 0.40,
+                        right: 35,
+                        left: 35),
+                    child:
+                    Column(
+                      children: [
+                        TextFormField(
+                          keyboardType: TextInputType.text,
+                          controller: mail,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "Email is required";
+                            }
+                            return null;
+                          },
+                          decoration: const InputDecoration(
+                            fillColor: Colors.pink,
+                            icon: Icon(Icons.person),
+                            border: InputBorder.none,
+                            hintText: "Username",
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        TextFormField(
+                          keyboardType: TextInputType.text,
+                          controller: password,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "password is required";
+                            }
+                            return null;
+                          },
+                          obscureText: !isVisible,
+                          decoration: InputDecoration(
+                              icon: const Icon(Icons.lock),
+                              border: InputBorder.none,
+                              hintText: "Password",
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      isVisible = !isVisible;
+                                    });
+                                  },
+                                  icon: Icon(isVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off))),
+                        ),
+                        const SizedBox(height: 20),
+                        GestureDetector(
+                          onTap: () {
+                            _signIn();
+                          },
+                          child: Container(
+                            height: 40,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width * .9,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: Colors.pink.shade900),
+                            child: TextButton(
+                                onPressed: () {
+                                  _signIn();
+                                },
+                                child: isSigningIn
+                                    ? CircularProgressIndicator(
+                                  color: Colors.white,
+                                ) : Text(
+                                  "LOGIN",
+                                  style: TextStyle(color: Colors.white),
+                                )),
+                          ),
+                        ),
+                        SizedBox(height: 20),
 
-                                    },
-                                    child: const Text("SIGN UP"))
-                              ],
-                            ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("Don't have an account?"),
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SignUp()),
+                                          (route) => false);
+                                },
+
+                                child: Text("SIGN UP",
+                                  style: TextStyle(
+                                      color: Colors.blue
+                                  ),))
                           ],
                         ),
-                      ),
+                      ],
+
                     ),
                   ),
-                  isLoginTrue
-                      ? const Text(
-                    "Username or password is incorrect",
-                    style: TextStyle(color: Colors.red),
-                  )
-                      : const SizedBox(),
-                  ],
-    ),
-    ));
+                ),
+              ),
+            ]
+          ),
+        ));
   }
 
-  void _signIn() async {
-    String name = username.text;
-    String pass = password.text;
+    void _signIn() async {
+
+      setState(() {
+        isSigningIn=true;
+      });
+      String email = mail.text;
+      String pass = password.text;
 
 
-    User? user = await _auth.signInWithEmailAndPassword(name, pass);
+      User? user = await _auth.signInWithEmailAndPassword(email, pass);
 
-    if (user != null) {
-      print("User created successfully.");
-      Navigator.pushNamed(context, "/homescreen");
-    } else
-    {
-      print("Some error happened.");
+      setState(() {
+        isSigningIn=false;
+      });
+
+      if (user != null) {
+        print("Logged in Successfully.");
+        Navigator.pushNamed(context,  '/_HomeScreenState');
+      } else
+      {
+        print("Some error happened.");
+      }
     }
-  }
 }
+
+
+
+
+/*TextButton(
+onPressed: () {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (context) =>  SignUp()));
+
+},*/

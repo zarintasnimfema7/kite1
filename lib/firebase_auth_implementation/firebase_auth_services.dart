@@ -7,34 +7,32 @@ class FirebaseAuthServices{
 
   FirebaseAuth _auth=FirebaseAuth.instance;
 
-  Future<User?> signUpWithEmailAndPassword(String username,String password) async{
+  Future<User?> signUpWithEmailAndPassword(String mail,String password) async{
     try {
       UserCredential credential =await _auth.createUserWithEmailAndPassword(
-          email: username,
+          email: mail,
           password: password);
       return credential.user;
-    }
-    catch (e){
+    } on FirebaseAuthException catch (e){
       print("Some error occured");
     }
     return null;
   }
 
-  signInWithEmailAndPassword(String name, String pass) {}
+  signInWithEmailAndPassword(String mail, String pass) {}
 }
 
 
 FirebaseAuth _auth=FirebaseAuth.instance;
 
 
-Future<User?> signInWithEmailAndPassword(String username,String password) async{
+Future<User?> signInWithEmailAndPassword(String mail,String password) async{
   try {
     UserCredential credential =await _auth.signInWithEmailAndPassword(
-        email: username,
+        email: mail,
         password: password);
     return credential.user;
-  }
-  catch (e){
+  } on FirebaseAuthException catch (e){
     print("Some error occured");
   }
   return null;

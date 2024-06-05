@@ -5,6 +5,9 @@ import 'package:kite/login.dart';
 import 'package:kite/welcome.dart';
 import 'firebase_options.dart';
 import 'package:kite/signup.dart';
+import 'package:kite/homescreen.dart';
+import 'package:flutter/src/widgets/app.dart';
+import 'package:flutter/src/widgets/navigator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
