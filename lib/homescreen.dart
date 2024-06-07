@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kite/login.dart';
-import 'package:kite/signup.dart';
+import 'package:kite/loginPage.dart';
+import 'package:kite/loginPage.dart';
+import 'package:kite/signupPage.dart';
+import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,9 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
         child:ElevatedButton(
           child: Text('Log out'),
           onPressed: (){
-            Navigator.push(context,
-              MaterialPageRoute(builder: (context)=>LoginScreen())
-            );
+            Navigator.pushReplacement(context,
+              MaterialPageRoute(
+                  builder: (context) => loginPage(),),);
           },
         )
       ),

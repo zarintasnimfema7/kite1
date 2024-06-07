@@ -1,9 +1,10 @@
 import 'dart:math';
-
+import 'package:get/get.dart';
+import 'package:kite/loginPage.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart' show AssetImage, BoxDecoration, BoxFit, BuildContext, Colors, Column, Container, DecorationImage, EdgeInsets, ElevatedButton, FontWeight, MaterialPageRoute, MediaQuery, Scaffold, SingleChildScrollView, Stack, State, StatefulWidget, Text, TextStyle, Widget;
+import 'package:flutter/material.dart' show AssetImage, BoxDecoration, BoxFit, BuildContext, Colors, Column, Container, DecorationImage, EdgeInsets, ElevatedButton, FontWeight, MaterialPageRoute, MediaQuery, Scaffold, SingleChildScrollView, Stack, State, StatefulWidget, Text, TextButton, TextStyle, Widget;
 
-import 'login.dart';
+import 'loginPage.dart';
 class MyAuth extends StatefulWidget {
   const MyAuth({super.key});
 
@@ -33,10 +34,9 @@ class _MyAuthState extends State<MyAuth> {
                 ),
                 Center(
                   child: ElevatedButton(onPressed: (){
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginScreen()));
+                    Navigator.pushReplacement(context,
+                      MaterialPageRoute(
+                          builder: (context) => loginPage()),);
                   },
                       child: Text('Get Started',
                         style: TextStyle(
