@@ -18,7 +18,7 @@ class _MyAuthState extends State<MyAuth> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage ('lib/assets/background.png') ,
+              image: AssetImage ('lib/assets/pink.jpg') ,
               fit: BoxFit.fill)
       ),
       child: Scaffold(
@@ -26,12 +26,24 @@ class _MyAuthState extends State<MyAuth> {
           body: Stack(
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 30, top: 260),
-                  child: Text('Welcome to Kaiteki',
-                    style: TextStyle(color: Colors.black,
-                      fontSize: 42,
-                      fontWeight: FontWeight.bold,),),
+                  padding: EdgeInsets.only(left: 70, top: 100),
+                  child: Text('Welcome to ',
+                    style: TextStyle(color: Colors.pink.shade900,
+                      fontSize: 52,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "BUXTONSKETCH",
+                    ),
+                  ),
                 ),
+                Container(
+                  padding: EdgeInsets.only(left: 80, top: 200),
+                  child: Text('kaiteki ',
+                    style: TextStyle(color: Colors.black,
+                      fontSize:102,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "BUXTONSKETCH",),),
+                ),
+
                 Center(
                   child: ElevatedButton(onPressed: (){
                     Navigator.pushReplacement(context,
@@ -42,6 +54,8 @@ class _MyAuthState extends State<MyAuth> {
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
+                          color: Colors.pink.shade900,
+                          fontFamily: "BUXTONSKETCH",
                         ),
                   ),),
                 )
