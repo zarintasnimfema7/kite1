@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kite/help.dart';
 import 'package:kite/info.dart';
 import 'package:kite/loginPage.dart';
-import 'package:kite/loginPage.dart';
 import 'package:kite/services.dart';
-import 'package:kite/signupPage.dart';
-import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 import 'package:kite/situations.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,16 +37,16 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 200,
             ),
 
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             ElevatedButton(
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder:(context)=>const Situation()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue.shade300,
-                side: BorderSide(color: Colors.black,width: 6),
-                fixedSize: Size(400,150),
-                shape: RoundedRectangleBorder(),
+                side: const BorderSide(color: Colors.black,width: 6),
+                fixedSize: const Size(400,150),
+                shape: const RoundedRectangleBorder(),
                 elevation: 20,
                 shadowColor: Colors.blue.shade900,
 
@@ -65,23 +61,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 40,),
+            const SizedBox(height: 25,),
             Row(
               children: [
                 ElevatedButton(
                   onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder:(context)=> Services()));
+                    Navigator.push(context, MaterialPageRoute(builder:(context)=> const Services()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.pink.shade900,
-                    side: BorderSide(color: Colors.black,width: 6),
-                    fixedSize: Size(170,70),
-                    shape: RoundedRectangleBorder(),
+                    side: const BorderSide(color: Colors.black,width: 6),
+                    fixedSize: const Size(170,70),
+                    shape: const RoundedRectangleBorder(),
                     elevation: 20,
                     shadowColor: Colors.blue.shade900,
 
                   ),
-                  child: Text("Services",
+                  child: const Text("Services",
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -91,19 +87,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                SizedBox(width: 13,),
+                const SizedBox(width: 13,),
                 ElevatedButton(
                   onPressed: (){},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.pink.shade900,
-                    side: BorderSide(color: Colors.black,width: 6),
-                    fixedSize: Size(170,70),
-                    shape: RoundedRectangleBorder(),
+                    side: const BorderSide(color: Colors.black,width: 6),
+                    fixedSize: const Size(170,70),
+                    shape: const RoundedRectangleBorder(),
                     elevation: 20,
                     shadowColor: Colors.blue.shade900,
 
                   ),
-                  child: Text("Chat",
+                  child: const Text("Chat",
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -116,21 +112,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
               ],
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 10,),
             ElevatedButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder:(context)=> MentalHealthIssuesPage()));
+                Navigator.push(context, MaterialPageRoute(builder:(context)=> const MentalHealthIssuesPage()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.pink.shade900,
-                side: BorderSide(color: Colors.black,width: 6),
-                fixedSize: Size(400,70),
-                shape: RoundedRectangleBorder(),
+                side: const BorderSide(color: Colors.black,width: 6),
+                fixedSize: const Size(400,70),
+                shape: const RoundedRectangleBorder(),
                 elevation: 20,
                 shadowColor: Colors.blue.shade900,
 
               ),
-              child: Text("More on mental health issues",
+              child: const Text("More on mental health issues",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
@@ -140,23 +136,46 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             ElevatedButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder:(context)=> ProfessionalHelpPage()));
+                Navigator.push(context, MaterialPageRoute(builder:(context)=> const ProfessionalHelpPage()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.pink.shade900,
-                side: BorderSide(color: Colors.black,width: 6),
-                fixedSize: Size(400,70),
-                shape: RoundedRectangleBorder(),
+                side: const BorderSide(color: Colors.black,width: 6),
+                fixedSize: const Size(400,70),
+                shape: const RoundedRectangleBorder(),
                 elevation: 20,
                 shadowColor: Colors.blue.shade900,
 
               ),
-              child: Text("Profesional Help",
+              child: const Text("Profesional Help",
                 style: TextStyle(
                   fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontFamily: "BUXTONSKETCH",
+
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder:(context)=> const loginPage()));
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.pink.shade900,
+                side: const BorderSide(color: Colors.black,width: 6),
+                fixedSize: const Size(130,15),
+                shape: const RoundedRectangleBorder(),
+                elevation: 20,
+                shadowColor: Colors.blue.shade900,
+
+              ),
+              child: const Text("logout",
+                style: TextStyle(
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                   fontFamily: "BUXTONSKETCH",
