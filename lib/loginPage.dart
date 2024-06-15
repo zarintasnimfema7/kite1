@@ -57,7 +57,7 @@ class _loginPageState extends State<loginPage> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('lib/assets/background.png'),
+            image: AssetImage('lib/assets/pink.jpg'),
             fit: BoxFit.cover,
           )
       ),
@@ -79,6 +79,7 @@ class _loginPageState extends State<loginPage> {
                       style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
+                        fontFamily: "BUXTONSKETCH",
                       ),
                     ),
                     SizedBox(height: 10),
@@ -165,7 +166,8 @@ class _loginPageState extends State<loginPage> {
                               style: TextStyle(
                                 color: Colors.white,
                                   fontSize: 25.0,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.bold,
+                                fontFamily: "BUXTONSKETCH",),
                             ))),
 
                     SizedBox(height: 20),
@@ -180,7 +182,8 @@ class _loginPageState extends State<loginPage> {
                           "Don't have an account? Sign Up",
                           style: TextStyle(
                             color: Colors.blue,
-                            fontSize: 16,
+                            fontSize: 20,
+                            fontFamily: "BUXTONSKETCH",
                           ),
                         ))
                   ],

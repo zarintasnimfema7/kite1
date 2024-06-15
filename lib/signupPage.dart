@@ -65,7 +65,7 @@ class _signupPageState extends State<signupPage> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('lib/assets/background.png'),
+            image: AssetImage('lib/assets/pink.jpg'),
             fit: BoxFit.cover,
           )
       ),
@@ -88,6 +88,7 @@ class _signupPageState extends State<signupPage> {
                       style: TextStyle(
                         fontSize: 50,
                         fontWeight: FontWeight.bold,
+                        fontFamily: "BUXTONSKETCH",
                       ),
                     ),
                     SizedBox(height: 10),
@@ -215,7 +216,8 @@ class _signupPageState extends State<signupPage> {
                               style: TextStyle(
                                 color: Colors.white,
                                   fontSize: 25.0,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.bold,
+                                fontFamily: "BUXTONSKETCH",),
                             ))),
                     SizedBox(height: 20),
                     TextButton(
@@ -229,7 +231,8 @@ class _signupPageState extends State<signupPage> {
                           "Already have an account? Sign In",
                           style: TextStyle(
                             color: Colors.blue,
-                            fontSize: 16,
+                            fontSize: 20,
+                            fontFamily: "BUXTONSKETCH",
                           ),
                         ))
 

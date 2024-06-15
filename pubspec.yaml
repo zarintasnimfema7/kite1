@@ -77,6 +77,8 @@ flutter:
      - lib/assets/girl.png
      - lib/assets/box1.png
      - lib/assets/box.png
+     - lib/assets/bg.jpg
+     - lib/assets/pink.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
