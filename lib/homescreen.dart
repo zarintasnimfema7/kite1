@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 10,),
             ElevatedButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder:(context)=> const MentalHealthIssuesPage()));
+                Navigator.push(context, MaterialPageRoute(builder:(context)=> MentalHealthIssuesPage()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.pink.shade900,
@@ -139,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 10,),
             ElevatedButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder:(context)=> const ProfessionalHelpPage()));
+                Navigator.push(context, MaterialPageRoute(builder:(context)=> ProfessionalHelpPage()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.pink.shade900,
