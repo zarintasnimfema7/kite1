@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 class MentalHealthIssuesPage extends StatelessWidget {
+  const MentalHealthIssuesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Signs of Fundamental Mental Health Issues'),
+        title: const Text('Signs of Fundamental Mental Health Issues'),
       ),
       body: Container(
         color: Colors.pink.shade100,
         padding: const EdgeInsets.all(16.0),
         child: ListView(
-          children: [
+          children: const [
             Text(
               'Signs of Fundamental Mental Health Issues',
               style: TextStyle(

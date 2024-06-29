@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kite/chatpage.dart';
+import 'package:kite/firebase_auth_implementation/authService.dart';
 import 'package:kite/help.dart';
 import 'package:kite/info.dart';
 import 'package:kite/loginPage.dart';
@@ -25,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.pink.shade900,
             fontWeight: FontWeight.bold,
           ),)),
+
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -89,7 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(width: 13,),
                 ElevatedButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder:(context)=> Chat()));
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.pink.shade900,
                     side: const BorderSide(color: Colors.black,width: 6),
@@ -160,29 +165,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder:(context)=> const loginPage()));
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.pink.shade900,
-                side: const BorderSide(color: Colors.black,width: 6),
-                fixedSize: const Size(130,15),
-                shape: const RoundedRectangleBorder(),
-                elevation: 20,
-                shadowColor: Colors.blue.shade900,
 
-              ),
-              child: const Text("logout",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontFamily: "BUXTONSKETCH",
-
-                ),
-              ),
-            ),
+            IconButton(onPressed:(){
+              Navigator.push(context, MaterialPageRoute(builder:(context)=> const loginPage()));
+            },
+              icon: const Icon(Icons.logout,),),
 
           ],
         ),

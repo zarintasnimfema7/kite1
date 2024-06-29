@@ -1,22 +1,14 @@
-import 'dart:math';
-import 'package:get/get.dart';
 import 'package:kite/loginPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show AssetImage, BoxDecoration, BoxFit, BuildContext, Colors, Column, Container, DecorationImage, EdgeInsets, ElevatedButton, FontWeight, MaterialPageRoute, MediaQuery, Scaffold, SingleChildScrollView, Stack, State, StatefulWidget, Text, TextButton, TextStyle, Widget;
 
-import 'loginPage.dart';
-class MyAuth extends StatefulWidget {
+class MyAuth extends StatelessWidget {
   const MyAuth({super.key});
 
   @override
-  State<MyAuth> createState() => _MyAuthState();
-}
-
-class _MyAuthState extends State<MyAuth> {
-  @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage ('lib/assets/pink.jpg') ,
               fit: BoxFit.fill)
@@ -26,7 +18,7 @@ class _MyAuthState extends State<MyAuth> {
           body: Stack(
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 70, top: 100),
+                  padding: const EdgeInsets.only(left: 70, top: 100),
                   child: Text('Welcome to ',
                     style: TextStyle(color: Colors.pink.shade900,
                       fontSize: 52,
@@ -36,8 +28,8 @@ class _MyAuthState extends State<MyAuth> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 80, top: 200),
-                  child: Text('kaiteki ',
+                  padding: const EdgeInsets.only(left: 80, top: 200),
+                  child: const Text('kaiteki ',
                     style: TextStyle(color: Colors.black,
                       fontSize:102,
                       fontWeight: FontWeight.bold,
@@ -48,7 +40,7 @@ class _MyAuthState extends State<MyAuth> {
                   child: ElevatedButton(onPressed: (){
                     Navigator.pushReplacement(context,
                       MaterialPageRoute(
-                          builder: (context) => loginPage()),);
+                          builder: (context) => const loginPage()),);
                   },
                       child: Text('Get Started',
                         style: TextStyle(

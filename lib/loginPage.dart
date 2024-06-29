@@ -1,14 +1,8 @@
-import 'package:kite/firebase_auth_implementation/authService.dart';
-import 'package:kite/homescreen.dart';
-import 'package:kite/signupPage.dart';
-import 'package:kite/main.dart';
-import 'package:kite/welcome.dart';
-import 'package:kite/firebase_auth_implementation/authService.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:get/get.dart';
+import 'package:kite/firebase_auth_implementation/authService.dart';
+import 'package:kite/signupPage.dart';
+import 'package:flutter/material.dart';
 
 
 
@@ -23,10 +17,15 @@ class _loginPageState extends State<loginPage> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final email = TextEditingController();
   final password = TextEditingController();
+  final FirebaseFirestore _firestore=FirebaseFirestore.instance;
+  final FirebaseAuth _auth=FirebaseAuth.instance;
+
+
 
   var isLogin = false;
   bool isVisible = false;
   var authService = authServices();
+
 
   Future<void> form(BuildContext context) async {
     if (formKey.currentState!.validate()) {
@@ -34,6 +33,7 @@ class _loginPageState extends State<loginPage> {
 
       setState(() {
         isLogin = true;
+
       });
 
 
@@ -43,9 +43,11 @@ class _loginPageState extends State<loginPage> {
       };
 
 
+
       await authService.login(data, context);
       setState(() {
         isLogin = false;
+
       });
     }
   }
@@ -55,7 +57,7 @@ class _loginPageState extends State<loginPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/assets/pink.jpg'),
             fit: BoxFit.cover,
@@ -67,14 +69,14 @@ class _loginPageState extends State<loginPage> {
         body: Center(
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Form(
                 key: formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: 20),
-                    Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       "Welcome",
                       style: TextStyle(
                         fontSize: 28,
@@ -82,7 +84,7 @@ class _loginPageState extends State<loginPage> {
                         fontFamily: "BUXTONSKETCH",
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Container(
                       margin: const EdgeInsets.all(8),
                       padding:
@@ -93,7 +95,7 @@ class _loginPageState extends State<loginPage> {
                       child: TextFormField(
                         controller: email,
                         keyboardType: TextInputType.emailAddress,
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -101,7 +103,7 @@ class _loginPageState extends State<loginPage> {
                           }
                           return null;
                         },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             fillColor: Colors.pink,
                             icon: Icon(Icons.person),
                             border: InputBorder.none,
@@ -110,7 +112,7 @@ class _loginPageState extends State<loginPage> {
                       ),
                     ),
 
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
                     Container(
                       margin: const EdgeInsets.all(8),
@@ -121,7 +123,7 @@ class _loginPageState extends State<loginPage> {
                           color: Colors.pink.shade50),
                       child: TextFormField(
                         controller: password,
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                         keyboardType: TextInputType.visiblePassword,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         obscureText: !isVisible,
@@ -133,7 +135,7 @@ class _loginPageState extends State<loginPage> {
                         },
                         decoration: InputDecoration(
                           fillColor: Colors.pink,
-                          icon: Icon(Icons.lock),
+                          icon: const Icon(Icons.lock),
                           border: InputBorder.none,
                           hintText: "Password",
                             suffixIcon: IconButton(
@@ -148,7 +150,7 @@ class _loginPageState extends State<loginPage> {
                         ),
                     ),
 
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
 
                     SizedBox(
                         height: 50,
@@ -160,8 +162,8 @@ class _loginPageState extends State<loginPage> {
                               isLogin ? print("Loading") : form(context);
                             },
                             child: isLogin
-                                ? Center(child: CircularProgressIndicator())
-                                : Text(
+                                ? const Center(child: CircularProgressIndicator())
+                                : const Text(
                               "Login",
                               style: TextStyle(
                                 color: Colors.white,
@@ -170,15 +172,15 @@ class _loginPageState extends State<loginPage> {
                                 fontFamily: "BUXTONSKETCH",),
                             ))),
 
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
                     TextButton(
                         onPressed: (){
                           Navigator.pushReplacement(context,
                             MaterialPageRoute(
-                                builder: (context) => signupPage()),);
+                                builder: (context) => const signupPage()),);
                         },
-                        child: Text(
+                        child: const Text(
                           "Don't have an account? Sign Up",
                           style: TextStyle(
                             color: Colors.blue,

@@ -9,7 +9,7 @@ class Services extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/assets/background.png'),
             fit: BoxFit.cover,
@@ -33,21 +33,21 @@ class Services extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               ElevatedButton(
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder:(context)=> ToDo()));
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=> const ToDo()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink.shade900,
-                  side: BorderSide(color: Colors.black,width: 6),
-                  fixedSize: Size(400,70),
-                  shape: RoundedRectangleBorder(),
+                  side: const BorderSide(color: Colors.black,width: 6),
+                  fixedSize: const Size(400,70),
+                  shape: const RoundedRectangleBorder(),
                   elevation: 20,
                   shadowColor: Colors.blue.shade900,
 
                 ),
-                child: Text("Brain Dump(To Do)",
+                child: const Text("Brain Dump(To Do)",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -57,21 +57,21 @@ class Services extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               ElevatedButton(
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder:(context)=> Excercise()));
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=> const Excercise()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink.shade900,
-                  side: BorderSide(color: Colors.black,width: 6),
-                  fixedSize: Size(400,70),
-                  shape: RoundedRectangleBorder(),
+                  side: const BorderSide(color: Colors.black,width: 6),
+                  fixedSize: const Size(400,70),
+                  shape: const RoundedRectangleBorder(),
                   elevation: 20,
                   shadowColor: Colors.blue.shade900,
 
                 ),
-                child: Text("Grounding Exercises",
+                child: const Text("Grounding Exercises",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -81,21 +81,21 @@ class Services extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               ElevatedButton(
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder:(context)=> Activities()));
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=> const Activities()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink.shade900,
-                  side: BorderSide(color: Colors.black,width: 6),
-                  fixedSize: Size(400,70),
-                  shape: RoundedRectangleBorder(),
+                  side: const BorderSide(color: Colors.black,width: 6),
+                  fixedSize: const Size(400,70),
+                  shape: const RoundedRectangleBorder(),
                   elevation: 20,
                   shadowColor: Colors.blue.shade900,
 
                 ),
-                child: Text("Suggested Activities",
+                child: const Text("Suggested Activities",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -105,6 +105,7 @@ class Services extends StatelessWidget {
                   ),
                 ),
               ),
+
             ],
           ),
         ),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ProfessionalHelpPage extends StatelessWidget {
+  const ProfessionalHelpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Professional Help',
+        title: const Text('Professional Help',
           style: TextStyle(
               fontSize: 40,
               fontWeight: FontWeight.bold,
@@ -17,7 +19,7 @@ class ProfessionalHelpPage extends StatelessWidget {
         color: Colors.pink.shade100,
         padding: const EdgeInsets.all(16.0),
         child: ListView(
-          children: [
+          children: const [
             Text(
               'Where to Get Mental Health Professional Help in Bangladesh',
               style: TextStyle(

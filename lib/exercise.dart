@@ -12,7 +12,7 @@ class _ExcerciseState extends State<Excercise> {
   String word='follow';
   void _startCountDown()
   {
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       if(timeLeft>0 )
       {
         if( timeLeft>=13){
@@ -55,7 +55,7 @@ class _ExcerciseState extends State<Excercise> {
     return Scaffold(
       backgroundColor: Colors.pink.shade100,
       appBar: AppBar(
-        title: Text("Grounding Exercises",
+        title: const Text("Grounding Exercises",
           style: TextStyle(
               fontSize: 40,
               fontWeight: FontWeight.bold,
@@ -66,7 +66,7 @@ class _ExcerciseState extends State<Excercise> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Row(
               children: [
 
@@ -80,8 +80,8 @@ class _ExcerciseState extends State<Excercise> {
                   color: Colors.pink.shade900,
                   height: 180,
                   width: 180,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Text('Hey! If you are having trouble to breath or trembling then doing Box Breathing is really effective',
                       style: TextStyle(
                         fontSize: 20,
@@ -105,20 +105,20 @@ class _ExcerciseState extends State<Excercise> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(timeLeft==0?'Done':timeLeft.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 90,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'BUXTONSKETCH',
                   ),
                 ),
-                SizedBox(width: 40,),
+                const SizedBox(width: 40,),
                 MaterialButton(
                   onPressed: (){
                     _startCountDown();
                     timeLeft=16;
                   },
                   color: Colors.pink.shade900,
-                  child: Text('START',
+                  child: const Text('START',
                     style: TextStyle(
                       fontSize: 50,
                       fontWeight: FontWeight.bold,
@@ -132,7 +132,7 @@ class _ExcerciseState extends State<Excercise> {
             Container(
               color:Colors.white ,
               child: Text(word,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                   fontFamily: 'BUXTONSKETCH',

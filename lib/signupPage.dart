@@ -1,14 +1,8 @@
-import 'package:kite/firebase_auth_implementation/authService.dart';
-import 'package:kite/homescreen.dart';
-import 'package:kite/loginPage.dart';
-import 'package:kite/main.dart';
-import 'package:kite/welcome.dart';
-import 'package:kite/firebase_auth_implementation/authService.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:get/get.dart';
+import 'package:kite/firebase_auth_implementation/authService.dart';
+import 'package:kite/loginPage.dart';
+import 'package:flutter/material.dart';
 
 
 class signupPage extends StatefulWidget {
@@ -23,11 +17,15 @@ class _signupPageState extends State<signupPage> {
   final email = TextEditingController();
   final password = TextEditingController();
   final confirmPassword=TextEditingController();
+  final FirebaseAuth _auth=FirebaseAuth.instance;
+  final FirebaseFirestore _firestore=FirebaseFirestore.instance;
 
   var isSignup = false;
   bool isVisible = false;
   var authService = authServices();
 
+
+  @override
   void dispose()
   {
     super.dispose();
@@ -39,9 +37,15 @@ class _signupPageState extends State<signupPage> {
   Future<void> form(BuildContext context) async {
     if (formKey.currentState!.validate()) {
 
-
+      final User? user =  _auth.currentUser;
+      final uid = user?.uid;
       setState(() {
         isSignup = true;
+        _firestore.collection("Users").doc(uid).set({
+          'uid':uid,
+          "email": email.text,
+
+        });
       });
 
 
@@ -63,7 +67,7 @@ class _signupPageState extends State<signupPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/assets/pink.jpg'),
             fit: BoxFit.cover,
@@ -74,16 +78,16 @@ class _signupPageState extends State<signupPage> {
         body: Center(
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Form(
                 key: formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
 
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
-                    Text(
+                    const Text(
                       "Create new account",
                       style: TextStyle(
                         fontSize: 50,
@@ -91,7 +95,7 @@ class _signupPageState extends State<signupPage> {
                         fontFamily: "BUXTONSKETCH",
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
                     Container(
                       margin: const EdgeInsets.all(8),
@@ -103,7 +107,7 @@ class _signupPageState extends State<signupPage> {
                       child: TextFormField(
                           controller: email,
                           keyboardType: TextInputType.emailAddress,
-                          style: TextStyle(color: Colors.black),
+                          style: const TextStyle(color: Colors.black),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -111,7 +115,7 @@ class _signupPageState extends State<signupPage> {
                             }
                             return null;
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             fillColor: Colors.pink,
                             icon: Icon(Icons.person),
                             border: InputBorder.none,
@@ -130,7 +134,7 @@ class _signupPageState extends State<signupPage> {
                           color: Colors.pink.shade50),
                       child: TextFormField(
                         controller: password,
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                         keyboardType: TextInputType.visiblePassword,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         obscureText: !isVisible,
@@ -142,7 +146,7 @@ class _signupPageState extends State<signupPage> {
                         },
                         decoration: InputDecoration(
                             fillColor: Colors.pink,
-                            icon: Icon(Icons.lock),
+                            icon: const Icon(Icons.lock),
                             border: InputBorder.none,
                             hintText: "Password",
                             suffixIcon: IconButton(
@@ -167,7 +171,7 @@ class _signupPageState extends State<signupPage> {
                           color: Colors.pink.shade50),
                       child: TextFormField(
                         controller: confirmPassword,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.black),
                         keyboardType: TextInputType.visiblePassword,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -183,7 +187,7 @@ class _signupPageState extends State<signupPage> {
                         },
                         decoration: InputDecoration(
                             fillColor: Colors.pink,
-                            icon: Icon(Icons.thumb_up_sharp),
+                            icon: const Icon(Icons.thumb_up_sharp),
                             border: InputBorder.none,
                             hintText: "Password",
                             suffixIcon: IconButton(
@@ -198,7 +202,7 @@ class _signupPageState extends State<signupPage> {
                       ),
                     ),
 
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
 
                     SizedBox(
                         height: 50,
@@ -210,8 +214,8 @@ class _signupPageState extends State<signupPage> {
                               isSignup ? print("Loading") : form(context);
                             },
                             child: isSignup
-                                ? Center(child: CircularProgressIndicator())
-                                : Text(
+                                ? const Center(child: CircularProgressIndicator())
+                                : const Text(
                               "Sign up",
                               style: TextStyle(
                                 color: Colors.white,
@@ -219,16 +223,16 @@ class _signupPageState extends State<signupPage> {
                                   fontWeight: FontWeight.bold,
                                 fontFamily: "BUXTONSKETCH",),
                             ))),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     TextButton(
                         onPressed: (){
                           Navigator.pushReplacement(context,
                             MaterialPageRoute(
-                                builder: (context) => loginPage()),
+                                builder: (context) => const loginPage()),
                           );
                         },
-                        child: Text(
-                          "Already have an account? Sign In",
+                        child: const Text(
+                          "Already have an account? log in",
                           style: TextStyle(
                             color: Colors.blue,
                             fontSize: 20,

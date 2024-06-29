@@ -1,11 +1,10 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kite/todo_model.dart';
 import 'package:kite/todo_item.dart';
 
 class ToDo extends StatefulWidget {
-  ToDo({super.key});
+  const ToDo({super.key});
 
   @override
   State<ToDo> createState() => _ToDoState();
@@ -18,11 +17,11 @@ class _ToDoState extends State<ToDo> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.pink.shade50,
-      appBar: AppBar(title: Text('Brain Dump'),),
+      appBar: AppBar(title: const Text('Brain Dump'),),
       body: Stack(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 15,
             ),
@@ -33,11 +32,11 @@ class _ToDoState extends State<ToDo> {
                   child: ListView(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(
+                        margin: const EdgeInsets.only(
                           top: 50,
                           bottom: 20,
                         ),
-                        child: Text(
+                        child: const Text(
                           'All ToDos',
                           style: TextStyle(
                             fontSize: 30,
@@ -62,12 +61,12 @@ class _ToDoState extends State<ToDo> {
             child: Row(children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     bottom: 20,
                     right: 20,
                     left: 20,
                   ),
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 20,
                     vertical: 5,
                   ),
@@ -85,31 +84,31 @@ class _ToDoState extends State<ToDo> {
                   ),
                   child: TextField(
                     controller: _todoController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         hintText: 'Add a new todo item',
                         border: InputBorder.none),
                   ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                   bottom: 20,
                   right: 20,
                 ),
                 child: ElevatedButton(
-                  child: Text(
-                    '+',
-                    style: TextStyle(
-                      fontSize: 40,
-                    ),
-                  ),
                   onPressed: () {
                     _addToDoItem(_todoController.text);
                   },
                   style: ElevatedButton.styleFrom(
                     // primary: ,
-                    minimumSize: Size(60, 60),
+                    minimumSize: const Size(60, 60),
                     elevation: 10,
+                  ),
+                  child: const Text(
+                    '+',
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
                   ),
                 ),
               ),
