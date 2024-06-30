@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kite/pages/1.dart';
 
 class Situation extends StatelessWidget {
   const Situation({super.key});
@@ -39,7 +40,7 @@ class Situation extends StatelessWidget {
               const SizedBox(height: 10,),
               Align(
                 alignment: Alignment.centerRight,
-                child: ElevatedButton(onPressed: (){},
+                child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>const one()));},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue.shade800,
                     side: const BorderSide(color: Colors.black,width: 3),

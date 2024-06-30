@@ -135,6 +135,7 @@ class _ToDoState extends State<ToDo> {
         todoText: toDo,
       ));
     });
+    print('Hello');
     _todoController.clear();
   }
 }
