@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kite/activities.dart';
 import 'package:kite/exercise.dart';
 import 'package:kite/todo.dart';
+import 'package:kite/five_four_three_two_one.dart';
+
+
 
 class Services extends StatelessWidget {
   const Services({super.key});
@@ -11,7 +14,7 @@ class Services extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('lib/assets/background.png'),
+            image: AssetImage('lib/assets/pink.jpg'),
             fit: BoxFit.cover,
           )
       ),
@@ -96,6 +99,30 @@ class Services extends StatelessWidget {
 
                 ),
                 child: const Text("Suggested Activities",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontFamily: "BUXTONSKETCH",
+
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10,),
+              ElevatedButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=>  FiveFourThreeTwoOnePage()));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.pink.shade900,
+                  side: const BorderSide(color: Colors.black,width: 6),
+                  fixedSize: const Size(400,70),
+                  shape: const RoundedRectangleBorder(),
+                  elevation: 20,
+                  shadowColor: Colors.blue.shade900,
+
+                ),
+                child: const Text("5-4-3-2-1",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
