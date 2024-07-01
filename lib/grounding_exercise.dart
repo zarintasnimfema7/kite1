@@ -77,7 +77,7 @@ class _GroundingExercisePageState extends State<GroundingExercisePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Grounding Exercise'),
+        title: Text('Grounding Exercise',style: TextStyle( fontSize:25,fontFamily: "BUXTONSKETCH",fontWeight: FontWeight.bold),),
       ),
       body: Container(
         color: Colors.pink.shade100,
@@ -103,7 +103,7 @@ class _GroundingExercisePageState extends State<GroundingExercisePage> {
                       ),
                       child: Text(
                         'Start Meditation',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white, fontFamily: "BUXTONSKETCH",fontWeight: FontWeight.bold,fontSize: 25),
                       ),
                     ),
                   ],
@@ -124,6 +124,7 @@ class _GroundingExercisePageState extends State<GroundingExercisePage> {
                               fontSize: 30,
                               color: Colors.red,
                               fontWeight: FontWeight.bold,
+                              fontFamily: "BUXTONSKETCH",
                             ),
                           ),
                         ),
@@ -136,6 +137,7 @@ class _GroundingExercisePageState extends State<GroundingExercisePage> {
                               fontSize: 16,
                               color: Colors.black,
                               fontWeight: FontWeight.normal,
+                              fontFamily: "BUXTONSKETCH",
                             ),
                           ),
                       ],

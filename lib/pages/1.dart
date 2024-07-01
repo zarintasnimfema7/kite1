@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kite/guided_meditation.dart';
+import 'package:kite/words_of_affirmation.dart';
 
 class one extends StatelessWidget {
   const one({super.key});
@@ -7,7 +9,7 @@ class one extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.blue.shade300,
-      appBar: AppBar(backgroundColor: Colors.blue.shade700,),
+      appBar: AppBar(backgroundColor: Colors.indigo.shade800,),
 
        body: Padding(
          padding: const EdgeInsets.all(10.0),
@@ -20,12 +22,12 @@ class one extends StatelessWidget {
                  gradient:LinearGradient(
                    begin: Alignment.topLeft,
                    end: Alignment.bottomRight,
-                   colors: [Colors.blue.shade100,Colors.blue.shade900],
+                   colors: [Colors.indigo.shade100,Colors.indigo.shade600],
                  )
                ),
                child: Padding(
                  padding: const EdgeInsets.all(10.0),
-                 child: Text("Hey, Its ok to feel anxious. The below activities might help you.",
+                 child: Text("Hey, It's ok to feel anxious. The below activities might help you.",
                    style: TextStyle(
                      fontSize: 23,
                      fontWeight: FontWeight.bold,
@@ -37,9 +39,9 @@ class one extends StatelessWidget {
              SizedBox(height: 80,),
              Align(
                alignment: Alignment.center,
-               child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>const one()));},
+               child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>WordsOfAffirmationPage()));},
                  style: ElevatedButton.styleFrom(
-                   backgroundColor: Colors.blue.shade800,
+                   backgroundColor: Colors.indigo.shade600,
                   // side: const BorderSide(color: Colors.black,width: 3),
                    fixedSize: const Size(200,100),
                    //shape: RoundedRectangleBorder(),
@@ -47,7 +49,7 @@ class one extends StatelessWidget {
                    shadowColor: Colors.blue.shade900,
 
                  ),
-                 child: const Text("yes",
+                 child: const Text("Words of Affirmation",
                    style: TextStyle(
                      fontSize: 28,
                      fontWeight: FontWeight.bold,
@@ -60,16 +62,16 @@ class one extends StatelessWidget {
              SizedBox(height: 20,),
              Align(
                alignment: Alignment.center,
-               child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>const one()));},
+               child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>WordsOfAffirmationPage()));},
                  style: ElevatedButton.styleFrom(
-                   backgroundColor: Colors.blue.shade800,
+                   backgroundColor: Colors.indigo.shade600,
                   // side: const BorderSide(color: Colors.black,width: 3),
                    fixedSize: const Size(200,100),
                    //shape: RoundedRectangleBorder(),
                    elevation: 20,
                    shadowColor: Colors.blue.shade900,
                  ),
-                 child: const Text("yes",
+                 child: const Text("Brain Dump",
                    style: TextStyle(
                      fontSize: 28,
                      fontWeight: FontWeight.bold,
@@ -82,16 +84,16 @@ class one extends StatelessWidget {
              SizedBox(height: 20,),
              Align(
                alignment: Alignment.center,
-               child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>const one()));},
+               child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>GuidedMeditationPage()));},
                  style: ElevatedButton.styleFrom(
-                   backgroundColor: Colors.blue.shade800,
+                   backgroundColor:Colors.indigo.shade600,
                   // side: const BorderSide(color: Colors.black,width: 3),
                    fixedSize: const Size(200,100),
                    //shape: RoundedRectangleBorder(),
                    elevation: 20,
                    shadowColor: Colors.blue.shade900,
                  ),
-                 child: const Text("yes",
+                 child: const Text("Guided Meditation",
                    style: TextStyle(
                      fontSize: 28,
                      fontWeight: FontWeight.bold,

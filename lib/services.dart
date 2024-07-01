@@ -7,6 +7,7 @@ import 'package:kite/toDoHome.dart';
 import 'package:kite/todo_tile.dart';
 import 'package:kite/five_four_three_two_one.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:kite/words_of_affirmation.dart';
 
 
 
@@ -45,7 +46,7 @@ class Services extends StatelessWidget {
               const SizedBox(height: 10,),
               ElevatedButton(
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder:(context)=> const toDoHome()));
+                  //Navigator.push(context, MaterialPageRoute(builder:(context)=> const toDoHome()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink.shade900,
@@ -153,6 +154,30 @@ class Services extends StatelessWidget {
 
                 ),
                 child: const Text("Grounding Excercise",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontFamily: "BUXTONSKETCH",
+
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10,),
+              ElevatedButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=>  WordsOfAffirmationPage()));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.pink.shade900,
+                  side: const BorderSide(color: Colors.black,width: 6),
+                  fixedSize: const Size(400,70),
+                  shape: const RoundedRectangleBorder(),
+                  elevation: 20,
+                  shadowColor: Colors.blue.shade900,
+
+                ),
+                child: const Text("Words of Affirmation",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,

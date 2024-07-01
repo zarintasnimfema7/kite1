@@ -74,7 +74,7 @@ class _RandomActionGeneratorPageState extends State<RandomActionGeneratorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Random Action Generator'),
+        title: Text('Random Action Generator',style: TextStyle( fontFamily: "BUXTONSKETCH",fontWeight: FontWeight.bold),),
       ),
       body: Container(
         color: Colors.pink.shade100,
@@ -91,7 +91,7 @@ class _RandomActionGeneratorPageState extends State<RandomActionGeneratorPage> {
               onPressed: _generateRandomActivity,
               child: Text(
                 'Generate Action',
-                style: TextStyle(color: Colors.white,fontSize: 25), // Button text color
+                style: TextStyle(color: Colors.white,fontSize: 27,fontWeight: FontWeight.bold, fontFamily: "BUXTONSKETCH",), // Button text color
               ),
             ),
             SizedBox(height: 16),
@@ -99,7 +99,7 @@ class _RandomActionGeneratorPageState extends State<RandomActionGeneratorPage> {
             Center(
               child: Text(
                 _selectedActivity,
-                style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: Colors.black),
+                style: TextStyle(fontSize: 28,  fontFamily: "BUXTONSKETCH",fontWeight: FontWeight.bold, color: Colors.black),
                 textAlign: TextAlign.center,
               ),
             ),

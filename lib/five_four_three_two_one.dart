@@ -44,7 +44,8 @@ class _FiveFourThreeTwoOnePageState extends State<FiveFourThreeTwoOnePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('5-4-3-2-1'),
+        backgroundColor: Colors.pink.shade200,
+        title: Center(child: Text('5-4-3-2-1',style: TextStyle( fontFamily: "BUXTONSKETCH",fontWeight: FontWeight.bold),)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -57,9 +58,10 @@ class _FiveFourThreeTwoOnePageState extends State<FiveFourThreeTwoOnePage> {
                 child: Text(
                   _prompts[_currentStep],
                   style: TextStyle(
-                    fontSize: 35,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
+                    fontFamily: "BUXTONSKETCH",
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -71,6 +73,7 @@ class _FiveFourThreeTwoOnePageState extends State<FiveFourThreeTwoOnePage> {
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
+                  fontFamily: "BUXTONSKETCH",
                 ),
               ),
             SizedBox(height: 16),
@@ -102,7 +105,7 @@ class _FiveFourThreeTwoOnePageState extends State<FiveFourThreeTwoOnePage> {
                 ),
                 child: Text(
                   _currentStep == _prompts.length - 1 ? 'Finish' : 'Next',
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black, fontFamily: "BUXTONSKETCH",fontWeight: FontWeight.bold,fontSize: 25),
                 ),
               ),
             ),
@@ -118,15 +121,16 @@ class CompletionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('5-4-3-2-1'),
-      ),
+        title: Text('5-4-3-2-1',style:TextStyle( fontFamily: "BUXTONSKETCH",),),),
       body: Center(
         child: Text(
           'Congratulations. You have completed the exercise.',
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
             color: Colors.black,
+            fontFamily: "BUXTONSKETCH",
+
           ),
           textAlign: TextAlign.center,
         ),
