@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:kite/firebase_options.dart';
 import 'package:kite/loginPage.dart';
 import 'package:kite/welcome.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'firebase_options.dart';
 import 'package:kite/signupPage.dart';
 import 'package:kite/homescreen.dart';
@@ -18,6 +20,10 @@ void main() async {
     name: 'name-here',
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  await Hive.initFlutter();
+
+  var box=await Hive.openBox('mybox');
   runApp(const MyApp());
 }
 //pompom
