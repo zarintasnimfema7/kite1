@@ -46,7 +46,7 @@ class Services extends StatelessWidget {
               const SizedBox(height: 10,),
               ElevatedButton(
                 onPressed: (){
-                  //Navigator.push(context, MaterialPageRoute(builder:(context)=> const toDoHome()));
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=> const toDoHome()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink.shade900,

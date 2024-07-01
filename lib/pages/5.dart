@@ -29,9 +29,9 @@ class five extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text("Sometimes your mind is cluttered and filled with a lot of thoughts. Try below services to feel calm.",
+                child: Text("Sometimes your mind is cluttered and filled with a lot of thoughts. Try the services below to feel calm.",
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
                     fontFamily: "BUXTONSKETCH",
                   ),

@@ -29,9 +29,9 @@ class three extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text("Hey, It's ok to feel Angry. The below activities might help you calm down.",
+                child: Text("Hey, It's ok to feel Angry. The activities below might help you calm down.",
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 30,
                     fontWeight: FontWeight.bold,
                     fontFamily: "BUXTONSKETCH",
                   ),

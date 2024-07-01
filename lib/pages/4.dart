@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kite/grounding_exercise.dart';
 import 'package:kite/guided_meditation.dart';
 import 'package:kite/words_of_affirmation.dart';
 
@@ -27,9 +28,9 @@ class four extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text("Hey, It's ok if you feel you need comfort. The below activities might help you.",
+                child: Text("Hey, It's ok if you feel you need comfort. The activities below might help you.",
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 30,
                     fontWeight: FontWeight.bold,
                     fontFamily: "BUXTONSKETCH",
                   ),
@@ -62,7 +63,7 @@ class four extends StatelessWidget {
             SizedBox(height: 20,),
             Align(
               alignment: Alignment.center,
-              child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>WordsOfAffirmationPage()));},
+              child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>GroundingExercisePage()));},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.indigo.shade600,
                   // side: const BorderSide(color: Colors.black,width: 3),
@@ -71,9 +72,9 @@ class four extends StatelessWidget {
                   elevation: 20,
                   shadowColor: Colors.blue.shade900,
                 ),
-                child: const Text("Brain Dump",
+                child: const Text("watch your thought disappear",
                   style: TextStyle(
-                    fontSize: 28,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     fontFamily: "BUXTONSKETCH",

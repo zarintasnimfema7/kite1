@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kite/guided_meditation.dart';
+import 'package:kite/toDoHome.dart';
 import 'package:kite/words_of_affirmation.dart';
 
 class one extends StatelessWidget {
@@ -27,9 +28,9 @@ class one extends StatelessWidget {
                ),
                child: Padding(
                  padding: const EdgeInsets.all(10.0),
-                 child: Text("Hey, It's ok to feel anxious. The below activities might help you.",
+                 child: Text("Hey, It's ok to feel anxious. The activities below  might help you.",
                    style: TextStyle(
-                     fontSize: 23,
+                     fontSize: 32,
                      fontWeight: FontWeight.bold,
                      fontFamily: "BUXTONSKETCH",
                    ),
@@ -62,7 +63,7 @@ class one extends StatelessWidget {
              SizedBox(height: 20,),
              Align(
                alignment: Alignment.center,
-               child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>WordsOfAffirmationPage()));},
+               child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>toDoHome()));},
                  style: ElevatedButton.styleFrom(
                    backgroundColor: Colors.indigo.shade600,
                   // side: const BorderSide(color: Colors.black,width: 3),

@@ -29,9 +29,9 @@ class six extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text("Distracting yourself is a great way to not think about all the negative emotions in your mind. You can try below services. ",
+                child: Text("Distracting yourself is a great way to not think about all the negative emotions in your mind. You can try the services below. ",
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
                     fontFamily: "BUXTONSKETCH",
                   ),

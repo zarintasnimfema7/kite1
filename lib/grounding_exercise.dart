@@ -58,7 +58,7 @@ class _GroundingExercisePageState extends State<GroundingExercisePage> {
           _opacity -= 0.02;
         } else {
           _fadeTimer?.cancel();
-          _meditationText = "Hope you feel less stressed and grounded now";
+          _meditationText = "Hope you feel less stressed";
           _opacity = 1.0;
         }
       });

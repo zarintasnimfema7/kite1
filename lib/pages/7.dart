@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kite/exercise.dart';
+import 'package:kite/five_four_three_two_one.dart';
 import 'package:kite/guided_meditation.dart';
 import 'package:kite/random_action_generator.dart';
 import 'package:kite/words_of_affirmation.dart';
@@ -64,7 +65,7 @@ class seven extends StatelessWidget {
             SizedBox(height: 20,),
             Align(
               alignment: Alignment.center,
-              child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>RandomActionGeneratorPage()));},
+              child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder:(context)=>FiveFourThreeTwoOnePage()));},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.indigo.shade600,
                   // side: const BorderSide(color: Colors.black,width: 3),
@@ -73,7 +74,7 @@ class seven extends StatelessWidget {
                   elevation: 20,
                   shadowColor: Colors.blue.shade900,
                 ),
-                child: const Text("Random Action Generator",
+                child: const Text("5-4-3-2-1",
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
