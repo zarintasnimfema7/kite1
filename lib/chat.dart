@@ -9,6 +9,8 @@ import 'package:flutter/widgets.dart';
 import 'package:kite/chat_services.dart';
 import 'package:kite/firebase_auth_implementation/authService.dart';
 import 'package:kite/loginPage.dart';
+import 'package:kite/message.dart';
+import 'package:kite/random_action_generator.dart';
 //import 'package:kite/main.dart';
 
 //import 'firebase_auth_implementation/authService.dart';
@@ -43,7 +45,8 @@ class ChatPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-              child: _buildMessage()),
+              child:_buildMessage(),
+          ),
           _buildUserInput(),
         ],
       ),
@@ -53,29 +56,38 @@ class ChatPage extends StatelessWidget {
 
 
   Widget _buildMessage(){
+ String senderID=_auth.currentUser!.uid;
 
- String senderID=getCurrentUser()!.uid;
   return StreamBuilder(
 
         stream: _chatService.getMessage(receiverID,senderID),
         builder:(context,snapshot){
-          if (snapshot.hasError) {
-            return const Text("Error");
-          }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Text("Loading..");
-          }
+    if (snapshot.hasError) {
+    return const Text("Error");
+    }
+
+    if (snapshot.connectionState == ConnectionState.waiting) {
+
+      return const Text("Loading..");
+
+    }
+    if(snapshot.hasData){
+
+    }
+
           return ListView(
             children: snapshot.data!.docs.map((doc) => _buildMessageItem(doc) ).toList(),
 
           );
         },
+
     );
   }
 
   Widget _buildMessageItem(DocumentSnapshot doc){
-    Map<String,dynamic>data=doc.data() as Map<String,dynamic>;
-    return Text(data["message"]);
+   Map<String,dynamic>data=doc.data() as Map<String,dynamic>;
+   return Text(data["message"]);
+
 
   }
   Widget _buildUserInput(){

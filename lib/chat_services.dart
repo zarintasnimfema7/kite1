@@ -40,7 +40,7 @@ Future<void> sendMessage(String receiverID,message) async{
 
 }
 
-Stream<QuerySnapshot> getMessage(String userID,otherUserID){
+Stream<QuerySnapshot> getMessage(String userID,otherUserID) {
   List<String>ids=[userID,otherUserID];
   ids.sort();
   String chatRoomID=ids.join('_');

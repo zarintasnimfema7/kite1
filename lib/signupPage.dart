@@ -37,12 +37,10 @@ class _signupPageState extends State<signupPage> {
   Future<void> form(BuildContext context) async {
     if (formKey.currentState!.validate()) {
 
-      final User? user =  _auth.currentUser;
-      final uid = user?.uid;
       setState(() {
         isSignup = true;
-        _firestore.collection("Users").doc(uid).set({
-          'uid':uid,
+        _firestore.collection("Users").doc(_auth.currentUser!.uid).set({
+          'uid':_auth.currentUser!.uid,
           "email": email.text,
 
         });

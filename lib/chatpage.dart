@@ -15,11 +15,6 @@ class Chat extends StatelessWidget {
   //chat services
   final ChatService _chatService = ChatService();
   final FirebaseAuth _auth=FirebaseAuth.instance;
-  String id(){
-  final User? user =  _auth.currentUser;
-  final  uid = user?.uid;
-  final String currentUserID=_auth.currentUser!.uid;
-  return currentUserID;}
   User?getCurrentUser(){
     return _auth.currentUser;
   }

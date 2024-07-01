@@ -1,7 +1,7 @@
-import 'package:kite/database/database.dart';
+
 import 'package:kite/todo_model.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+
 
 class ToDoItem extends StatelessWidget {
   final ToDoModel  todo;
@@ -9,8 +9,7 @@ class ToDoItem extends StatelessWidget {
   final onDeleteItem;
   ToDoItem({Key? key, required this.todo,required this.onToDoChange,required this.onDeleteItem}) : super(key:key);
 
-  final _mybox= Hive.openBox('mybox');
-  toDoDatabase db=toDoDatabase();
+
   @override
   Widget build(BuildContext context) {
     return Container(
