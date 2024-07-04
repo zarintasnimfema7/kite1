@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kite/chatpage.dart';
-import 'package:kite/firebase_auth_implementation/authService.dart';
 import 'package:kite/help.dart';
 import 'package:kite/info.dart';
 import 'package:kite/loginPage.dart';

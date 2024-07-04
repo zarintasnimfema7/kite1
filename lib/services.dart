@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kite/activities.dart';
 import 'package:kite/exercise.dart';
 import 'package:kite/grounding_exercise.dart';
+import 'package:kite/guided_meditation.dart';
 import 'package:kite/random_action_generator.dart';
 import 'package:kite/toDoHome.dart';
 import 'package:kite/todo_tile.dart';
@@ -178,6 +179,30 @@ class Services extends StatelessWidget {
 
                 ),
                 child: const Text("Words of Affirmation",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontFamily: "BUXTONSKETCH",
+
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10,),
+              ElevatedButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=>  GuidedMeditationPage()));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.pink.shade900,
+                  side: const BorderSide(color: Colors.black,width: 6),
+                  fixedSize: const Size(400,70),
+                  shape: const RoundedRectangleBorder(),
+                  elevation: 20,
+                  shadowColor: Colors.blue.shade900,
+
+                ),
+                child: const Text("Guided Meditation",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,

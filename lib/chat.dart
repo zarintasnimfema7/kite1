@@ -1,5 +1,4 @@
-//import 'dart:html';
-//import 'dart:js';
+
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,16 +10,12 @@ import 'package:kite/firebase_auth_implementation/authService.dart';
 import 'package:kite/loginPage.dart';
 import 'package:kite/message.dart';
 import 'package:kite/random_action_generator.dart';
-//import 'package:kite/main.dart';
-
-//import 'firebase_auth_implementation/authService.dart';
 class ChatPage extends StatelessWidget {
   final String receiveEmail;
   final String receiverID;
    ChatPage({super.key,required this.receiveEmail,required this.receiverID});
   final TextEditingController _messageController=TextEditingController();
   final ChatService _chatService=ChatService();
- final authServices _authservices=authServices();
   final FirebaseAuth _auth=FirebaseAuth.instance;
  User?getCurrentUser(){
     return _auth.currentUser;

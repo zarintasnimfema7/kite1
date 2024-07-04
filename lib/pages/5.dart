@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kite/exercise.dart';
 import 'package:kite/guided_meditation.dart';
 import 'package:kite/random_action_generator.dart';
-import 'package:kite/words_of_affirmation.dart';
+
 
 class five extends StatelessWidget {
   const five({super.key});

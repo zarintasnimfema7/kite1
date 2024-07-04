@@ -93,7 +93,7 @@ class _GuidedMeditationPageState extends State<GuidedMeditationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Guided Meditation'),
+        title: Text('Guided Meditation',style: TextStyle(fontFamily: "BUXTONSKETCH",fontSize: 30),),
       ),
       body: Container(
         color: Colors.pink.shade100,
@@ -111,6 +111,7 @@ class _GuidedMeditationPageState extends State<GuidedMeditationPage> {
                     fontSize: 24,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
+                    fontFamily: "BUXTONSKETCH",
                   ),
                 ),
               ),
@@ -119,7 +120,10 @@ class _GuidedMeditationPageState extends State<GuidedMeditationPage> {
             SizedBox(height: 20),
             Text(
               'Time remaining: $_timerSeconds seconds',
-              style: TextStyle(fontSize: 18, color: Colors.red),
+              style: TextStyle(fontSize: 25,
+                color: Colors.red,
+                fontFamily: "BUXTONSKETCH",
+              ),
             ),
             SizedBox(height: 40),
             if (_currentStep < _steps.length - 1)
@@ -139,7 +143,7 @@ class _GuidedMeditationPageState extends State<GuidedMeditationPage> {
                 ),
                 child: Text(
                   'Next Step',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white,fontFamily: "BUXTONSKETCH",fontSize: 30),
                 ),
               ),
           ],
