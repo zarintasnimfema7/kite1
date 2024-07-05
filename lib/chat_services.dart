@@ -15,7 +15,7 @@ Stream<List<Map<String,dynamic>>>getUserStream(){
     }).toList();
   });
 }
-Future<void> sendMessage(String receiverID,message) async{
+Future<void> sendMessage(String receiverID, receiveEmail,message) async{
   final String currentUserID=_auth.currentUser!.uid;
   final String? currentUserEmail=_auth.currentUser!.email;
   final Timestamp timestamp=Timestamp.now();
@@ -24,11 +24,12 @@ Future<void> sendMessage(String receiverID,message) async{
       senderID: currentUserID,
       senderEmail: currentUserEmail,
       receiverID: receiverID,
+      receiveEmail: receiveEmail,
       message: message,
       timestamp: timestamp
   );
 
-  List<String> ids=[currentUserID,receiverID];
+  List<String?> ids=[currentUserEmail, receiveEmail];
   ids.sort();
   String chatRoomID=ids.join('_');
 
@@ -40,8 +41,8 @@ Future<void> sendMessage(String receiverID,message) async{
 
 }
 
-Stream<QuerySnapshot> getMessage(String userID,otherUserID) {
-  List<String>ids=[userID,otherUserID];
+Stream<QuerySnapshot> getMessage(String userEmail,otherUserEmail) {
+  List<String>ids=[userEmail,otherUserEmail];
   ids.sort();
   String chatRoomID=ids.join('_');
   return _firestore.collection("chat_rooms")

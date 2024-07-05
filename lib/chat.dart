@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:kite/chat_bubble.dart';
 import 'package:kite/chat_services.dart';
 import 'package:kite/firebase_auth_implementation/authService.dart';
 import 'package:kite/loginPage.dart';
@@ -17,6 +18,7 @@ class ChatPage extends StatelessWidget {
   final TextEditingController _messageController=TextEditingController();
   final ChatService _chatService=ChatService();
   final FirebaseAuth _auth=FirebaseAuth.instance;
+  final authServices _authService=authServices();
  User?getCurrentUser(){
     return _auth.currentUser;
   }
@@ -25,7 +27,7 @@ class ChatPage extends StatelessWidget {
   void sendMessage() async{
     if(_messageController.text.isNotEmpty)
       {
-        await _chatService.sendMessage(receiverID, _messageController.text);
+        await _chatService.sendMessage(receiverID,receiveEmail,_messageController.text);
         _messageController.clear();
       }
   }
@@ -51,11 +53,11 @@ class ChatPage extends StatelessWidget {
 
 
   Widget _buildMessage(){
- String senderID=_auth.currentUser!.uid;
+ String? senderEmail=_auth.currentUser!.email;
 
   return StreamBuilder(
 
-        stream: _chatService.getMessage(receiverID,senderID),
+        stream: _chatService.getMessage(receiveEmail,senderEmail),
         builder:(context,snapshot){
     if (snapshot.hasError) {
     return const Text("Error");
@@ -81,7 +83,18 @@ class ChatPage extends StatelessWidget {
 
   Widget _buildMessageItem(DocumentSnapshot doc){
    Map<String,dynamic>data=doc.data() as Map<String,dynamic>;
-   return Text(data["message"]);
+   bool isCurrentUser=data['senderEmail']==_auth.currentUser!.email;
+   var alignment= isCurrentUser?Alignment.centerRight:Alignment.centerLeft;
+   return Container(
+    child: Column(
+      crossAxisAlignment: isCurrentUser?CrossAxisAlignment.end:CrossAxisAlignment.start,
+      children: [
+        ChatBubble(
+            message: data['message'],
+            isCurrentUser: isCurrentUser)
+      ],
+    )
+     );
 
 
   }
@@ -93,7 +106,8 @@ class ChatPage extends StatelessWidget {
           style: const TextStyle(color: Colors.black),
           decoration: const InputDecoration(
             fillColor: Colors.pink,
-            icon: Icon(Icons.message),
+            icon: Icon(Icons.message,
+            ),
             border: InputBorder.none,
             hintText: "type a message",
           )
@@ -101,8 +115,16 @@ class ChatPage extends StatelessWidget {
       ),
         Padding(
           padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-          child: IconButton(onPressed:(){sendMessage();},
-            icon: const Icon(Icons.arrow_upward,),),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.pink.shade900,
+              shape: BoxShape.circle,
+            ),
+            margin: EdgeInsets.only(right: 20),
+            child: IconButton(onPressed:(){sendMessage();},
+              icon: const Icon(Icons.arrow_upward,
+              color: Colors.white,),),
+          ),
         ),
       ],
     );

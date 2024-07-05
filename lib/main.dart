@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:kite/firebase_options.dart';
-import 'package:kite/loginPage.dart';
 import 'package:kite/welcome.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
